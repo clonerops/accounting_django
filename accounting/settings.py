@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'product.apps.ProductConfig',
     'store.apps.StoreConfig',
+    #  My Package
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
