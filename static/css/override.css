@@ -1,0 +1,8 @@
+@font-face {
+    font-family: yekan;
+    src: url("../fonts/YekanBakhFaNum-Regular.ttf");
+    font-style: normal;
+}
+* {
+    font-family: yekan;
+}

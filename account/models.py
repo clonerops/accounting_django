@@ -44,19 +44,25 @@ class User(AbstractBaseUser):
     lastName = models.CharField(max_length=255, null=True, blank=True, verbose_name="نام خانوادگی")
     fatherName = models.CharField(max_length=255, null=True, blank=True, verbose_name="نام پدر")
     nationalCode = models.CharField(max_length=10, unique=True, verbose_name="کدملی")
-    birthDate = models.DateField(null=True, blank=True)
+    birthDate = models.DateField(null=True, blank=True, verbose_name="تاریخ تولد")
     mobile = models.CharField(max_length=18, null=True, blank=True, verbose_name="شماره همراه")
     telephone = models.CharField(max_length=18, null=True, blank=True, verbose_name="شماره ثابت")
     province = models.CharField(max_length=18, null=True, blank=True, verbose_name="استان")
     city = models.CharField(max_length=18, null=True, blank=True, verbose_name="شهر")
-    address = models.TextField(null=True, blank=True)
-    is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
+    address = models.TextField(null=True, blank=True, verbose_name="آدرس")
+    is_active = models.BooleanField(default=True, verbose_name="آیا کاربر فعال باشد؟")
+    is_admin = models.BooleanField(default=False, verbose_name="کاربر ادمین باشد؟")
 
     objects = MyUserManager()
 
     USERNAME_FIELD = "nationalCode"
     REQUIRED_FIELDS = ["firstName", "lastName", "mobile"]
+
+    class Meta:
+        db_table = "users"
+        verbose_name="کاربر"
+        verbose_name_plural="کاربران"
+
 
     def __str__(self):
         return self.nationalCode
