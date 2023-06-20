@@ -11,4 +11,4 @@ class ProductSerializer(serializers.ModelSerializer):
     createdBy = UserSerializer()
     class Meta:
         model = Product
-        fields = ('title', 'description', 'isStock', 'createdBy')
+        fields = ('id', 'title', 'description', 'isStock', 'createdBy')
