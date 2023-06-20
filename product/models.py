@@ -19,7 +19,7 @@ class ProductGroup(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name="عنوان")
     description = models.TextField(blank=True, null=True, verbose_name="توضیحات")
-    productgroupId = models.ForeignKey(ProductGroup, default=1, on_delete=models.CASCADE, related_name="product_group")
+    productgroupId = models.ForeignKey(ProductGroup, default=1, on_delete=models.CASCADE, related_name="product_group", verbose_name="گروه محصول")
     productSize = models.CharField(max_length=255, blank=True, null=True, verbose_name="سایز کالا")
     createdBy = models.ForeignKey(User, on_delete=models.CASCADE, related_name="product_createdby", verbose_name="ایجاد شده توسط")
     isActive = models.BooleanField(default=True, verbose_name="آیا محصول فعال باشد؟")
@@ -42,3 +42,13 @@ class ProductPrice(models.Model):
     isDeleted = models.BooleanField(default=False, verbose_name="آیا محصول در لیست حذف شده ها باشد؟")
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateField(auto_now=True)
+
+    def __str__(self) -> str:
+        return str(self.productId) + " " + str(self.price)
+
+    class Meta: 
+        db_table = "productprice"
+        verbose_name="قیمت محصول"
+        verbose_name_plural="قیمت محصولات"
+
+    

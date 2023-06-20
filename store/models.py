@@ -13,7 +13,8 @@ class Store(models.Model):
     type = models.CharField(
         max_length=255,
         choices= TypeChoise,
-        default="1"
+        default="1",
+        verbose_name="نوع انبار"
     )
     createdBy = models.ForeignKey(User, on_delete=models.CASCADE, related_name="store_createdby", verbose_name="ایجاد شده توسط")
     isActive = models.BooleanField(default=True, verbose_name="آیا انبار فعال باشد؟")
