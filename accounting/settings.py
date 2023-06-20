@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'product.apps.ProductConfig',
     'store.apps.StoreConfig',
+    'customer.apps.CustomerConfig',
     #  My Package
     'rest_framework',
     "corsheaders"
