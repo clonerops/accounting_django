@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView
-from .models import Order
-from .serializers import OrderSerializer
+from .models import Order, OrderDetail
+from .serializers import OrderSerializer, OrderDetailSerializer
 
 # Create your views here.
 class OrderConfirm(CreateAPIView):
@@ -12,6 +12,10 @@ class OrderList(ListAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     
+class CrateOrderDetail(CreateAPIView):
+    queryset = OrderDetail.objects.all()
+    serializer_class = OrderDetailSerializer
+
 class OrderDetail(RetrieveAPIView):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+    serializer_class = OrderDetailSerializer
